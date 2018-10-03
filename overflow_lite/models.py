@@ -9,7 +9,7 @@ class User(object):
 
     def __init__(self):
         self.users = {}
-        self.u_token = {}
+        self.user_token = {}
 
     def create_user_account(self, user_name, user_password, is_admin=False):
         """This method creates a new user account with a random unique global identifier"""
