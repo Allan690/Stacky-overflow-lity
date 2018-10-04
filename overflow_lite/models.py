@@ -47,12 +47,28 @@ class Questions(object):
                     return question
 
     def fetch_all_questions(self, user_id):
-        """This method allows a user to fetch all questions posted by themselves"""
+        """This method allows a user to fetch all questions posted by themselves by supplying user id"""
         if self.questions:
             for question in self.questions.values():
                 if question['user_id'] == user_id:
                     all_questions.append(question)
                     return all_questions
+
+    def find_question_by_id(self, question_id):
+        """This method allows a user to fetch a question that corresponds to the supplied question id"""
+        if self.questions:
+            for question in self.questions.values():
+                if question.get('question_id') == question_id:
+                    return question
+
+    def update_question(self, question_id, title, description):
+        """This method will allow a user to update a question by supplying the question id, title and description"""
+        if self.questions:
+            for question in self.questions.values():
+                if question.get('question_id') == question_id:
+                    question['question_title'] = title
+                    question['question_statement'] = description
+                    return question
 
 
 class Answers(object):
