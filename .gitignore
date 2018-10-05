@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.coverage
+.DS_STORE
+venv
+.vscode
+.idea/
+.coveragerc
+.env
+*.travis.yml
+Procfile
+manage.py
+config.py
+run.py
+*tests
