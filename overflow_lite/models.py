@@ -14,10 +14,10 @@ class User(object):
     def create_user_account(self, user_name, user_password, is_admin=False):
         """This method creates a new user account with a random unique global identifier"""
         user_details = {
-                'id': uuid.uuid4(),
-                'username': user_name,
-                'password': user_password,
-                'is_admin': is_admin
+            'id': uuid.uuid4(),
+            'username': user_name,
+            'password': user_password,
+            'is_admin': is_admin
         }
         self.users[user_name] = user_details
         return self.users
@@ -93,4 +93,20 @@ class Answers(object):
         for answer in self.answers.values():
             if answer['question_id'] == question_id:
                 all_answers.append(question_id)
-                return all_questions
+                return all_answers
+
+    def update_answer(self, answer_id, title, description):
+        """This method will allow a user to update a question by supplying the question id, title and description"""
+        if self.answers:
+            for answer in self.answers.values():
+                if answer.get('answer_id') == answer_id:
+                    answer['answer_title'] = title
+                    answer['answer_statement'] = description
+                    return answer
+
+    def find_answer_by_id(self, answer_id):
+        """This method finds an answer using supplied answer id"""
+        if self.answers:
+            for answer in self.answers.values():
+                if answer.get('answer_id') == answer_id:
+                    return answer
