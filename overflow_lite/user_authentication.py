@@ -101,8 +101,3 @@ def reset_user_password(current_user):
     usr.update({"password": password_hash})
     return jsonify({"Message": "User password has been reset"}), 202
 
-
-@auth.route('/users', methods=['GET'])
-@login_token_required
-def get_all_users(current_user):
-    return jsonify({"users": user_object.users}), 200
