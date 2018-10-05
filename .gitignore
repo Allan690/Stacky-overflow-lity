@@ -11,5 +11,4 @@ venv
 Procfile
 manage.py
 config.py
-run.py
 *tests
